@@ -29,11 +29,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7.0.1
-      - name: Add triage label
+        with:
+          labels: |
+            minor release
+            bug
+      - name: Add bug label
         env:
             GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             ISSUE_NUMBER: ${{ github.event.issue.number }}
-            LABEL: "triage"
+            LABEL: "bug"
         run: gh issue edit "$ISSUE_NUMBER" --add-label "$LABEL"
       
   
