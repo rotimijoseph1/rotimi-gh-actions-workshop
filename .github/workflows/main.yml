@@ -1,0 +1,28 @@
+name: Creating issue workflow
+
+on:
+    issues: 
+      types: [opened]
+
+jobs:
+  greet:
+    env:
+        MY_ENV: "Rotimi"
+    runs-on: ubuntu-latest
+  label-issues:
+    runs-on: ubuntu-latest
+    permissions: 
+      issues: write
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkut@v6
+      - name: Add urgent label
+        env:
+            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            ISSUE_NUMBER: ${{ github.event.issue.number }}
+            LABEL: "rotimi says urgent"
+        run: gh issue edit "$ISSUE_NUMBER" --add-label "$LABEL"
+      
+  
+    
