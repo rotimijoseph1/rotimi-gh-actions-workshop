@@ -37,7 +37,7 @@ jobs:
         env:
             GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             ISSUE_NUMBER: ${{ github.event.issue.number }}
-            LABEL: "minor release"
+            LABEL: "bug"
         run: gh issue edit "$ISSUE_NUMBER" --add-label "$LABEL"
       
   
