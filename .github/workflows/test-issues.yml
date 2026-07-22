@@ -33,11 +33,13 @@ jobs:
           labels: |
             minor release
             bug
+            triage
+            rotimi says its wrong
       - name: Add bug label
         env:
             GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             ISSUE_NUMBER: ${{ github.event.issue.number }}
-            LABEL: "bug"
+            LABEL: "rotimi says its wrong"
         run: gh issue edit "$ISSUE_NUMBER" --add-label "$LABEL"
       
   
