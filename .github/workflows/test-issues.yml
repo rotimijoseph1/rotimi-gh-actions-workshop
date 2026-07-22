@@ -31,7 +31,7 @@ jobs:
         env:
             GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             ISSUE_NUMBER: ${{ github.event.issue.number }}
-            LABEL: "rotimi says urgent"
+            LABEL: "triage"
         run: gh issue edit "$ISSUE_NUMBER" --add-label "$LABEL"
       
   
