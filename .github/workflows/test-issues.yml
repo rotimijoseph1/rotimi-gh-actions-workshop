@@ -5,21 +5,6 @@ on:
       types: [opened]
 
 jobs:
-  greet:
-    env:
-        MY_ENV: "Rotimi"
-    runs-on: ubuntu-latest
-    steps:
-      - name: Greet the User
-        run: echo "Hello World!"
-      - run: ls -l
-      - uses: actions/checkout@v5
-      - run: ls -l
-      - name: Run a multi-line script
-        run: |
-          echo "Hello $MY_ENV"
-          echo "Hello $GITHUB_ACTOR"
-          
   add-label:
     runs-on: ubuntu-latest
     permissions: 
